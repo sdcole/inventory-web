@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navigation from './Components/Navigation';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+/*
+* I treat the App like a container. For organizational purposes only.
+* 
+*/
+const App = () => {
 
-function App() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#8FB9A8', // change this to your desired primary color
+      },
+      secondary: {
+        main: '#FEFAD4', // change this to your desired secondary color
+      },
+    },
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ThemeProvider theme={theme}>
+        <Navigation/>
+      </ThemeProvider>
+      
     </div>
   );
-}
+};
 
 export default App;
