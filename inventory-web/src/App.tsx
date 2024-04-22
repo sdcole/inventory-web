@@ -2,7 +2,7 @@ import Navigation from './Components/Navigation';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 /*
 * I treat the App like a container. For organizational purposes only.
-* 
+* It renders the navigation pane which holds the Navbar and all routes.
 */
 const App = () => {
 

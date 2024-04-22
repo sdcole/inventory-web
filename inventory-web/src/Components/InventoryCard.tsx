@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, Typography, Grid } from '@mui/material';
 import { styled } from '@mui/system';
-import { ProductObject } from '../Objects/ProductObject';
+import { InventoryObject } from '../Objects/InventoryObject';
 
-const ProductCardContainer = styled(Card)(({ theme }) => ({
+const InventoryCardContainer = styled(Card)(({ theme }) => ({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -15,7 +15,7 @@ const ProductCardContainer = styled(Card)(({ theme }) => ({
   },
 }));
 
-const ProductCardContent = styled(CardContent)(({ theme }) => ({
+const InventoryCardContent = styled(CardContent)(({ theme }) => ({
   flexGrow: 1,
 }));
 
@@ -31,34 +31,31 @@ const formatPrice = (price: number): string => {
 };
 
 
-const ProductCard = ({ product }: { product: ProductObject }) => {
+const InventoryCard = ({ inventory }: { inventory: InventoryObject }) => {
   //This appends the 10 characters to make the serial number look better.
-  product.productID = pad(product.productID, 10) as unknown as number;
+  inventory.inventoryID = pad(inventory.inventoryID, 10) as unknown as number;
   return (
-    <Grid item key={product.productID} xs={12} sm={6} md={4} lg={3}>
-      <Link to={`/products/${product.productID}`} style={{ textDecoration: 'none' }}>
-        <ProductCardContainer>
-          <ProductCardContent>
+    <Grid item key={inventory.inventoryID} xs={12} sm={6} md={4} lg={3}>
+      <Link to={`/products/${inventory.inventoryID}`} style={{ textDecoration: 'none' }}>
+        <InventoryCardContainer>
+          <InventoryCardContent>
             <Typography gutterBottom variant="h6">
-              {product.productName}
+              Product ID: {inventory.productID}
             </Typography>
             <Typography variant="body2" color="textSecondary">
-              {product.productDescription}
+              Action: {inventory.actionID}
             </Typography>
             <Typography variant="body2">
-              Price: {formatPrice(product.productPrice)}
+              Quantity Changed: {inventory.quantityChanged}
             </Typography>
             <Typography variant="body2">
-              Quantity: {product.productQuantity}
+              Timstamp: {inventory.timestamp.toString()}
             </Typography>
-            <Typography variant="body2">
-              Product Serial: {product.productID}
-            </Typography>
-          </ProductCardContent>
-        </ProductCardContainer>
+          </InventoryCardContent>
+        </InventoryCardContainer>
       </Link>
     </Grid>
   );
 };
 
-export default ProductCard;
+export default InventoryCard;

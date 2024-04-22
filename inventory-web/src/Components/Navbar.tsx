@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Button, Drawer, List, ListItemButton, ListItemText, Theme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import styled from '@mui/material/styles/styled';
-import Products from '../Pages/Products';
 
 // Create a styled component for the IconButton
 const MenuIconButton = styled(IconButton)(({ theme }) => ({
@@ -46,6 +45,7 @@ const Navbar: React.FC = () => {
         <Button component={Link} to="/" color="inherit">Home</Button>
         <Button component={Link} to="/products" color="inherit">Products</Button>
         <Button component={Link} to="/inventory" color="inherit">Inventory</Button>
+        <Button component={Link} to="/about" color="inherit">About</Button>
       </Toolbar>
       <Drawer anchor="left" open={openDrawer} onClose={toggleDrawer(false)}>
         <DrawerList onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
@@ -58,6 +58,9 @@ const Navbar: React.FC = () => {
             </ListItemButton>
             <ListItemButton component={Link} to="/inventory">
               <ListItemText primary="Inventory" />
+            </ListItemButton>
+            <ListItemButton component={Link} to="/about">
+              <ListItemText primary="About" />
             </ListItemButton>
           </List>
         </DrawerList>

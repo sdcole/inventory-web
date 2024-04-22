@@ -2,13 +2,13 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Typography, Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
-import { Product } from '../Objects/Product';
+import { ProductObject } from '../Objects/ProductObject';
 import { useNavigate } from 'react-router-dom';
 
 const ProductDetailsPage = () => {
   const { productID } = useParams<{ productID: string }>();
   const navigate = useNavigate();
-  const [product, setProduct] = React.useState<Product | null>(null);
+  const [product, setProduct] = React.useState<ProductObject | null>(null);
   const [openDialog, setOpenDialog] = React.useState(false);
 
   React.useEffect(() => {

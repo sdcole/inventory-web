@@ -5,6 +5,8 @@ import Products from '../Pages/Products';
 import Inventory from '../Pages/Inventory';
 import Navbar from './Navbar';
 import ProductDetailsPage from '../Pages/ProductDetailsPage';
+import NotFound from '../Pages/NotFound';
+import About from '../Pages/About';
 
 /*
 * This is the parent component for the Page navigation.
@@ -18,8 +20,11 @@ const Navigation = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/inventory" element={<Inventory />} />
         <Route path="/products/:productID" element={<ProductDetailsPage/>} />
+        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/about" element={<About/>} />
+        
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
