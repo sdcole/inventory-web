@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import ProductDetailsPage from '../Pages/ProductDetailsPage';
 import NotFound from '../Pages/NotFound';
 import About from '../Pages/About';
+import Login from '../Pages/Login';
 
 /*
 * This is the parent component for the Page navigation.
@@ -23,7 +24,7 @@ const Navigation = () => {
         <Route path="/products/:productID" element={<ProductDetailsPage/>} />
         <Route path="/inventory" element={<Inventory />} />
         <Route path="/about" element={<About/>} />
-        
+        <Route path="/login" element={<Login/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
